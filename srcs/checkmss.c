@@ -12,6 +12,13 @@
 
 #include "../includes/CheckMSS.h"
 
+int     usage()
+{
+    printf("Usage :\t./checkmss [-d destination addr] [-s source addr]\n");
+    printf("\t\t[-t timeout] [-o all|top]\n");
+    return (0);
+}
+
 int		checkOpt(int ac, char **av, t_mss **mss)
 {
 	int i;
@@ -36,17 +43,12 @@ int		checkOpt(int ac, char **av, t_mss **mss)
 			if (!strcmp(av[i + 1], "top"))
 				(*mss)->checkport = 2;
 		}
+        if (!strcmp(av[i], "-h"))
+            return (0);
 		i++;
 	}
 	if (strlen((*mss)->addr_dst) > 0)
 		return (1);
-	return (0);
-}
-
-int		usage()
-{
-	printf("Usage :\t./checkmss [-d destination addr] [-s source addr]\n");
-	printf("\t\t[-t timeout] [-o all|top]\n");
 	return (0);
 }
 
@@ -76,6 +78,7 @@ void	launch_checkMSS(t_mss **mss)
 	initMSS(mss);
 	start_thread(*mss);
 	printf("\n"COLOR_GREEN "[+] " COLOR_RESET "Value MSS : %lu\n", (*mss)->totalmss);
+    free((*mss)->iph);
 }
 
 t_mss	*initStruct()

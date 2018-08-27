@@ -14,7 +14,22 @@
 
 char	*getIPLocal()
 {
-	return ("172.20.10.2");
+	struct ifaddrs *ifaddr, *ifa;
+    if (getifaddrs(&ifaddr) == -1)
+        return (NULL);
+    for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next)
+    {
+        if (ifa->ifa_addr != NULL && ifa->ifa_addr->sa_family == AF_INET)
+        {
+            if (!strcmp(ifa->ifa_name, "en0") || !strcmp(ifa->ifa_name, "eth0") || 
+            !strcmp(ifa->ifa_name, "enp0s3"))
+            {
+                freeifaddrs(ifaddr);
+                return (inet_ntoa(((struct sockaddr_in *)ifa->ifa_addr)->sin_addr));
+            }
+        }
+    }
+    return (NULL);
 }
 
 unsigned short csum(unsigned short *ptr, int nbytes) 

@@ -38,6 +38,7 @@
 #include<pthread.h>
 #include<unistd.h>
 #include<netdb.h>
+#include<ifaddrs.h>
 #include<arpa/inet.h>
 #include<netinet/tcp.h>
 #include<netinet/ip.h>
