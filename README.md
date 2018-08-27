@@ -1,4 +1,5 @@
 # CheckMSS
+CheckMSS is an application when check the MSS of remote server.
 
 This application was created in Raw Socket in C. I added the MSS Option in TCP Mode..
 
