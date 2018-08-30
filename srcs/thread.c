@@ -40,3 +40,4 @@ void	start_thread(t_mss *mss)
 	pthread_join(myThreadSniffer, NULL);
 	pthread_join(myThreadSendSyn, NULL);
 }
+

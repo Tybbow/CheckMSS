@@ -1,6 +1,6 @@
 NAME = checkmss
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -lpthread
+CFLAGS = -Wall -Werror -Wextra -pthread
 HEADERS = -I ./include/
 
 SRC_PATH = ./srcs
@@ -18,8 +18,8 @@ $(NAME): $(OBJS)
 	@($(CC) $(CFLAGS) $(HEADERS) -o $@ $^)
 	@echo "--------------------------------------------------"
 	@echo "          Compilation of $@ has finish            "
-	@echo "          CheckMSS : v 1.0 - By Tybbow            "
-	@echo "            For Section Metrologie                "
+	@echo "             CheckMSS : v 1.0 - By Tybbow            "
+	@echo "              For Section Metrologie                "
 	@echo "--------------------------------------------------"
 
 all : $(NAME)

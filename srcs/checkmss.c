@@ -26,7 +26,13 @@ int		checkOpt(int ac, char **av, t_mss **mss)
 	i = 1;
 	(*mss)->timeout = 3;
 	(*mss)->checkport = 2;
-	strcpy((*mss)->addr_src, getIPLocal());
+    if (getIPLocal() == NULL)
+    {
+        printf(COLOR_RED "[-] " COLOR_RESET "No interface found.. Please use -s\n");
+        return (0);
+    }
+    else
+        strcpy((*mss)->addr_src, getIPLocal());
 	memset((*mss)->addr_dst, 0, 20);
 	while (i < ac)
 	{
@@ -77,7 +83,10 @@ void	launch_checkMSS(t_mss **mss)
     }
 	initMSS(mss);
 	start_thread(*mss);
-	printf("\n"COLOR_GREEN "[+] " COLOR_RESET "Value MSS : %lu\n", (*mss)->totalmss);
+    if ((*mss)->totalmss != 4095)
+	    printf("\n"COLOR_GREEN "[+] " COLOR_RESET "Value MSS : %lu\n", (*mss)->totalmss);
+    else
+        printf("\n"COLOR_RED "[-] " COLOR_RESET "Aucune valeur trouvee, l'adresse IP %s est-elle joignable ?\n", (*mss)->addr_dst);
     free((*mss)->iph);
 }
 
