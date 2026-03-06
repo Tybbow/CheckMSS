@@ -26,7 +26,7 @@ void	process_packet(unsigned char *buffer, int size, t_mss *mss)
 		{
 			totalmss = print_mss(&buffer[size - 4]);
 			findMss(&mss, totalmss);
-			printf(COLOR_GREEN "[+] " COLOR_RESET "Port Open: %d\n", ntohs(tcph->source));
+			printf(COLOR_GREEN "[+] " COLOR_RESET "Open Port: %d - MSS: %ld\n", ntohs(tcph->source), totalmss);
 			fflush(stdout);
 		}
 	}
@@ -48,7 +48,7 @@ void	start_sniffer(t_mss *mss)
 		fflush(stdout);
 		exit(1);
 	}
-	printf(COLOR_GREEN "[+] " COLOR_RESET "Sniffer en cours...\n");
+	printf(COLOR_GREEN "[+] " COLOR_RESET "Sniffing in progress...\n");
 	saddr_size = sizeof(saddr);
 	while (1)
 	{

@@ -22,7 +22,7 @@ char	*getIPLocal()
         if (ifa->ifa_addr != NULL && ifa->ifa_addr->sa_family == AF_INET)
         {
             if (!strcmp(ifa->ifa_name, "en0") || !strcmp(ifa->ifa_name, "eth0") || 
-            !strcmp(ifa->ifa_name, "enp0s3"))
+            !strcmp(ifa->ifa_name, "enp0s3") || !strcmp(ifa->ifa_name, "ifLocal"))
             {
                 freeifaddrs(ifaddr);
                 return (inet_ntoa(((struct sockaddr_in *)ifa->ifa_addr)->sin_addr));

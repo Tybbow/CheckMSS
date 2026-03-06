@@ -16,12 +16,12 @@ void	sendSyn(t_mss *mss)
 {
 	size_t port;
 	struct sockaddr_in  dst;
-	printf(COLOR_GREEN "[+] " COLOR_RESET "Envoie des paquets Syn...\n");
+	printf(COLOR_GREEN "[+] " COLOR_RESET "Sending SYN packets...\n");
 
 	dst.sin_family = AF_INET;
 	dst.sin_addr.s_addr = inet_addr(mss->addr_dst);
 	port = 1;
-	while (port < 100)
+	while (port < 10000)
 	{
 		mss->tcph->dest = htons(port);
 		mss->tcph->check = 0;
