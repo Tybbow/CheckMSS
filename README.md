@@ -97,9 +97,9 @@ CheckMSS By Tybbow - v 1.0
 
 ### Compile
 ```bash
-  Make
-  Make fclean
-  make clean
+Make
+Make fclean
+make clean
 ```
 
 ### Run
