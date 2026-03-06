@@ -61,8 +61,8 @@ int		checkOpt(int ac, char **av, t_mss **mss)
 void	launch_checkMSS(t_mss **mss)
 {
 	printf("\nCheckMSS By Tybbow - v 1.0\n\n");
-	printf(COLOR_GREEN "[+] " COLOR_RESET "Adresse source : %s\n", (*mss)->addr_src);
-	printf(COLOR_GREEN "[+] " COLOR_RESET "Adresse destination : %s\n", (*mss)->addr_dst);
+	printf(COLOR_GREEN "[+] " COLOR_RESET "Source Address : %s\n", (*mss)->addr_src);
+	printf(COLOR_GREEN "[+] " COLOR_RESET "Destination Address : %s\n", (*mss)->addr_dst);
 	printf(COLOR_GREEN "[+] " COLOR_RESET "Timeout : %lu\n", (*mss)->timeout);
 	printf(COLOR_GREEN "[+] " COLOR_RESET "Option : %d\n\n", (*mss)->checkport);
 

@@ -26,7 +26,7 @@ void	process_packet(unsigned char *buffer, int size, t_mss *mss)
 		{
 			totalmss = print_mss(&buffer[size - 4]);
 			findMss(&mss, totalmss);
-			printf(COLOR_GREEN "[+] " COLOR_RESET "Open Port: %d - MSS: %ld\n", ntohs(tcph->source), totalmss);
+			printf(COLOR_GREEN "[+] " COLOR_RESET "Port Open: %d - MSS: %ld\n", ntohs(tcph->source), totalmss);
 			fflush(stdout);
 		}
 	}

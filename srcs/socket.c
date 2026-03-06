@@ -19,9 +19,6 @@ void	initPseudoHeader(t_mss **mss)
 	(*mss)->psdheader.padding = 0;
 	(*mss)->psdheader.proto = IPPROTO_TCP;
 	(*mss)->psdheader.length = htons(sizeof(t_tcp) + sizeof(t_otcp));
-//    (*mss)->vmss.kind = 2;
-//    (*mss)->vmss.len = 1;
-//    (*mss)->vmss.mss = htons(32000);
 }
 
 void	initIP(t_mss **mss)
